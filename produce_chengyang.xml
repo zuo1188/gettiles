@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE Map [
+<!ENTITY maxscale_zoom0 "<MaxScaleDenominator>250000000000</MaxScaleDenominator>">
+<!ENTITY maxscale_zoom1 "<MaxScaleDenominator>500000000</MaxScaleDenominator>">
+<!ENTITY minscale_zoom1 "<MinScaleDenominator>200000000</MinScaleDenominator>">
+<!ENTITY maxscale_zoom2 "<MaxScaleDenominator>200000000</MaxScaleDenominator>">
+<!ENTITY minscale_zoom2 "<MinScaleDenominator>100000000</MinScaleDenominator>">
+<!ENTITY maxscale_zoom3 "<MaxScaleDenominator>100000000</MaxScaleDenominator>">
+<!ENTITY minscale_zoom3 "<MinScaleDenominator>50000000</MinScaleDenominator>">
+<!ENTITY maxscale_zoom4 "<MaxScaleDenominator>50000000</MaxScaleDenominator>">
+<!ENTITY minscale_zoom4 "<MinScaleDenominator>25000000</MinScaleDenominator>">
+<!ENTITY maxscale_zoom5 "<MaxScaleDenominator>25000000</MaxScaleDenominator>">
+<!ENTITY minscale_zoom5 "<MinScaleDenominator>12500000</MinScaleDenominator>">
+<!ENTITY maxscale_zoom6 "<MaxScaleDenominator>12500000</MaxScaleDenominator>">
+<!ENTITY minscale_zoom6 "<MinScaleDenominator>6500000</MinScaleDenominator>">
+<!ENTITY maxscale_zoom7 "<MaxScaleDenominator>6500000</MaxScaleDenominator>">
+<!ENTITY minscale_zoom7 "<MinScaleDenominator>3000000</MinScaleDenominator>">
+<!ENTITY maxscale_zoom8 "<MaxScaleDenominator>3000000</MaxScaleDenominator>">
+<!ENTITY minscale_zoom8 "<MinScaleDenominator>1500000</MinScaleDenominator>">
+<!ENTITY maxscale_zoom9 "<MaxScaleDenominator>1500000</MaxScaleDenominator>">
+<!ENTITY minscale_zoom9 "<MinScaleDenominator>750000</MinScaleDenominator>">
+<!ENTITY maxscale_zoom10 "<MaxScaleDenominator>750000</MaxScaleDenominator>">
+<!ENTITY minscale_zoom10 "<MinScaleDenominator>400000</MinScaleDenominator>">
+<!ENTITY maxscale_zoom11 "<MaxScaleDenominator>400000</MaxScaleDenominator>">
+<!ENTITY minscale_zoom11 "<MinScaleDenominator>200000</MinScaleDenominator>">
+<!ENTITY maxscale_zoom12 "<MaxScaleDenominator>200000</MaxScaleDenominator>">
+<!ENTITY minscale_zoom12 "<MinScaleDenominator>100000</MinScaleDenominator>">
+<!ENTITY maxscale_zoom13 "<MaxScaleDenominator>100000</MaxScaleDenominator>">
+<!ENTITY minscale_zoom13 "<MinScaleDenominator>50000</MinScaleDenominator>">
+<!ENTITY maxscale_zoom14 "<MaxScaleDenominator>50000</MaxScaleDenominator>">
+<!ENTITY minscale_zoom14 "<MinScaleDenominator>25000</MinScaleDenominator>">
+<!ENTITY maxscale_zoom15 "<MaxScaleDenominator>25000</MaxScaleDenominator>">
+<!ENTITY minscale_zoom15 "<MinScaleDenominator>12500</MinScaleDenominator>">
+<!ENTITY maxscale_zoom16 "<MaxScaleDenominator>12500</MaxScaleDenominator>">
+<!ENTITY minscale_zoom16 "<MinScaleDenominator>5000</MinScaleDenominator>">
+<!ENTITY maxscale_zoom17 "<MaxScaleDenominator>5000</MaxScaleDenominator>">
+<!ENTITY minscale_zoom17 "<MinScaleDenominator>2500</MinScaleDenominator>">
+<!ENTITY maxscale_zoom18 "<MaxScaleDenominator>2500</MaxScaleDenominator>">
+<!ENTITY minscale_zoom18 "">
+]>
+
+<Map srs="+proj=merc +lon_0=0 +lat_ts=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs" >
+
+    <!--<Layer name="water_p" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs" status="1">
+        <Datasource>
+            <Parameter name="type">postgis</Parameter>
+            <Parameter name="table">(select kind,dispclass,name_zh,name_en,name_alias_zh,name_alias_en,geom from bp where (z(!scale_denominator!) >= 0 and dispclass='8') or
+                 (z(!scale_denominator!) >= 5 and dispclass='7') or
+                (z(!scale_denominator!) >= 7 and dispclass='6') or
+                (z(!scale_denominator!) >= 9 and dispclass='5') or
+                (z(!scale_denominator!) >= 11 and dispclass='4') or
+                (z(!scale_denominator!) >= 12 and dispclass='3') or
+                (z(!scale_denominator!) >= 13 and dispclass='2') or
+                (z(!scale_denominator!) >= 14 and dispclass='1')
+                                    ) as bp</Parameter>
+            <Parameter name="host">t0.map.design</Parameter>
+            <Parameter name="port">5432</Parameter>
+            <Parameter name="user">postgres</Parameter>
+            <Parameter name="password">Abc$1234</Parameter>
+            <Parameter name="dbname">basemap</Parameter>
+        </Datasource>
+    </Layer>
+
+
+
+    &lt;!&ndash;8级以上显示区县行政区划&ndash;&gt;
+    <Layer name="admin_l" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs" status="1">
+        <Datasource>
+            <Parameter name="type">postgis</Parameter>
+            <Parameter name="table">(select kind,geom from bl where (z(!scale_denominator!) >= 8 and kind='0137') or
+                (kind in ('0131' ,'013a' ,'013b' ,'013e')) or
+                (z(!scale_denominator!) >= 3 and kind='0132') or
+                (z(!scale_denominator!) >= 6 and kind='0135') or
+                (z(!scale_denominator!) >= 5 and kind='013c')
+                ) as bl</Parameter>
+            <Parameter name="host">t0.map.design</Parameter>
+            <Parameter name="port">5432</Parameter>
+            <Parameter name="user">postgres</Parameter>
+            <Parameter name="password">Abc$1234</Parameter>
+            <Parameter name="dbname">basemap</Parameter>
+        </Datasource>
+    </Layer>
+    <Layer name="admin_p" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs" status="1">
+        <Datasource>
+            <Parameter name="type">postgis</Parameter>
+            <Parameter name="table">(select kind,admincode,name_zh,name_en,geom from d where (
+                (z(!scale_denominator!) >= 10 and kind in ('0134','0136')) or
+                (z(!scale_denominator!) >= 6 and kind='0135') or
+                (z(!scale_denominator!) >= 6 and kind='0133') or
+                (z(!scale_denominator!) >= 8 and kind='0137')
+                )) as d</Parameter>
+            <Parameter name="host">t0.map.design</Parameter>
+            <Parameter name="port">5432</Parameter>
+            <Parameter name="user">postgres</Parameter>
+            <Parameter name="password">Abc$1234</Parameter>
+            <Parameter name="dbname">basemap</Parameter>
+        </Datasource>
+    </Layer>-->
+
+
+
+    <!-- 6级以上开始显示国道、高速路、都市高速路 -->
+    <!-- 10级以上，开始显示省道 -->
+    <!-- 11级以上，开始显示县道 -->
+    <!-- 12级以上，开始显示乡村道路 -->
+    <!-- 13级以上，开始显示其他 -->
+    <!-- 14级以上，开始显示九级路、轮渡、行人道路 -->
+    <Layer name="road_l" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs" status="1" maximum-scale-denominator="50000000">
+        <Datasource>
+            <Parameter name="type">postgis</Parameter>
+            <Parameter name="table">
+                (select kind,substring(kind from 1 for 2) as class,direction,lanenum,elevated,structure,geom
+                from 道路_l where (z(!scale_denominator!) >= 0 and (kind like '00%' or kind like '01%' or kind like '02%')) or
+                (z(!scale_denominator!) >= 8 and kind like '03%') or
+                (z(!scale_denominator!) >= 8 and kind like '04%') or
+                (z(!scale_denominator!) >= 11 and (kind like '06%' or kind like '0a%')) or
+                (z(!scale_denominator!) >= 12 and kind like '08%') or
+                (z(!scale_denominator!) >= 13 and (kind like '09%' or kind like '0b%'))) as roads </Parameter>
+            <Parameter name="host">t0.map.design</Parameter>
+            <Parameter name="port">5432</Parameter>
+            <Parameter name="user">postgres</Parameter>
+            <Parameter name="password">Abc$1234</Parameter>
+            <Parameter name="dbname">chengyang</Parameter>
+        </Datasource>
+    </Layer>
+
+
+    <!--<Layer name="text" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs" status="1">
+        <Datasource>
+            <Parameter name="type">postgis</Parameter>
+            <Parameter name="table">
+                (select kind,class,name_zh,name_en,geom from t where (z(!scale_denominator!) >= 3 and class = '7') or
+                (z(!scale_denominator!) >= 5 and class = '6') or
+                (z(!scale_denominator!) >= 6 and class = '5') or
+                (z(!scale_denominator!) >= 8 and class = '4') or
+                (z(!scale_denominator!) >= 10 and class = '3') or
+                (z(!scale_denominator!) >= 12 and class = '2') or
+                (z(!scale_denominator!) >= 14 and class = '1')
+                ) as t </Parameter>
+            <Parameter name="host">t0.map.design</Parameter>
+            <Parameter name="port">5432</Parameter>
+            <Parameter name="user">postgres</Parameter>
+            <Parameter name="password">Abc$1234</Parameter>
+            <Parameter name="dbname">basemap</Parameter>
+        </Datasource>
+    </Layer>
+
+    <Layer name="utility_p" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs" status="1" maximum-scale-denominator="1500000">
+        <Datasource>
+            <Parameter name="type">postgis</Parameter>
+            <Parameter name="table">(select kind,name_zh,name_en,name_alias_zh,name_alias_en,geom from bp where (kind in ('0161' ,'0162' ,'0163' ,'0164' ,'0165' ,'0166' ,'06ff' ,'0171' ,'0172' ,'0173' ,'0174' ,'0175' ,'0176' ,'0177' ,'0178' ,'0179' ,'017a' ,'84ff' ,'07ff'))) as bp</Parameter>
+            <Parameter name="host">t0.map.design</Parameter>
+            <Parameter name="port">5432</Parameter>
+            <Parameter name="user">postgres</Parameter>
+            <Parameter name="password">Abc$1234</Parameter>
+            <Parameter name="dbname">basemap</Parameter>
+        </Datasource>
+    </Layer>
+    <Layer name="green_p" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs" status="1" maximum-scale-denominator="1500000">
+        <Datasource>
+            <Parameter name="type">postgis</Parameter>
+            <Parameter name="table">(select kind,name_zh,name_en,name_alias_zh,name_alias_en,geom from bp where kind in ('0141' ,'0142' ,'0144' ,'0149' ,'014a' ,'014b')) as bp</Parameter>
+            <Parameter name="host">t0.map.design</Parameter>
+            <Parameter name="port">5432</Parameter>
+            <Parameter name="user">postgres</Parameter>
+            <Parameter name="password">Abc$1234</Parameter>
+            <Parameter name="dbname">basemap</Parameter>
+        </Datasource>
+    </Layer>
+    <Layer name="island_p" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs" status="1" maximum-scale-denominator="1500000">
+        <Datasource>
+            <Parameter name="type">postgis</Parameter>
+            <Parameter name="table">(select kind,name_zh,name_en,name_alias_zh,name_alias_en,geom from bp where kind in ('0143' ,'0145' ,'0146' ,'0147' ,'0148')) as bp</Parameter>
+            <Parameter name="host">t0.map.design</Parameter>
+            <Parameter name="port">5432</Parameter>
+            <Parameter name="user">postgres</Parameter>
+            <Parameter name="password">Abc$1234</Parameter>
+            <Parameter name="dbname">basemap</Parameter>
+        </Datasource>
+    </Layer>
+    <Layer name="railway_l" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs" status="1" maximum-scale-denominator="1500000">
+        <Datasource>
+            <Parameter name="type">postgis</Parameter>
+            <Parameter name="table">(select kind,rwcolor,name_zh,name_en,name_alias_zh,name_alias_en,geom from bl where kind like '024%') as bl</Parameter>
+            <Parameter name="host">t0.map.design</Parameter>
+            <Parameter name="port">5432</Parameter>
+            <Parameter name="user">postgres</Parameter>
+            <Parameter name="password">Abc$1234</Parameter>
+            <Parameter name="dbname">basemap</Parameter>
+
+        </Datasource>
+    </Layer>-->
+
+
+    <Layer name="poi" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs" status="1" maximum-scale-denominator="100000">
+        <Datasource>
+            <Parameter name="type">postgis</Parameter>
+            <Parameter name="table">(select kind,poi_flag,rating,src_name,geom from poi_merge) as poi_merge</Parameter>
+            <Parameter name="host">t0.map.design</Parameter>
+            <Parameter name="port">5432</Parameter>
+            <Parameter name="user">postgres</Parameter>
+            <Parameter name="password">Abc$1234</Parameter>
+            <Parameter name="dbname">chengyang</Parameter>
+        </Datasource>
+    </Layer>
+    <!--<Layer name="hamlet" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs" status="1" maximum-scale-denominator="750000">
+        <Datasource>
+            <Parameter name="type">postgis</Parameter>
+            <Parameter name="table">(select kind,name_zh,name_en,name_alias_zh,name_alias_en,geom from hamlet where (z(!scale_denominator!) >= 10 and kind = '260000') or (z(!scale_denominator!) >= 14 and kind = '260100') ) as hamlet</Parameter>
+            <Parameter name="host">t0.map.design</Parameter>
+            <Parameter name="port">5432</Parameter>
+            <Parameter name="user">postgres</Parameter>
+            <Parameter name="password">Abc$1234</Parameter>
+            <Parameter name="dbname">basemap</Parameter>
+        </Datasource>
+    </Layer>-->
+</Map>
+

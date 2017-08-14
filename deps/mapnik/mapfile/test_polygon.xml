@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Map  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs">
+
+    <Style name="test_mongo">
+        <Rule>
+            <PolygonSymbolizer />
+        </Rule>
+    </Style>
+    <Layer name="test_mongo" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+        <StyleName>test_mongo</StyleName>
+        <Datasource>
+            <Parameter name="type">mongo</Parameter>
+            <Parameter name="host">10.44.163.131</Parameter>
+            <Parameter name="dbname">mapEditor</Parameter>
+            <Parameter name="user">admin</Parameter>
+            <Parameter name="password">tomapto2015Td</Parameter>
+            <Parameter name="geometry_table">user_liongg_gps_alarm_area</Parameter>
+            <Parameter name="max_extent">-179.9,-89.9,179.9,89.9</Parameter>
+            <Parameter name="initial_size">1</Parameter>
+            <Parameter name="max_size">10</Parameter>
+            <Parameter name="encoding">utf-8</Parameter>
+            <Parameter name="geometry_field">geom</Parameter>
+            <!-- <Parameter name="query">{_id:'42a04980-797a-11e5-b8dc-03965672241e'}</Parameter> -->
+            <!-- <Parameter name="query">{_id:'1da7b5a0-796b-11e5-b8dc-03965672241e'}</Parameter> -->
+            <!-- <Parameter name="query"></Parameter> -->
+            <Parameter name="label_field">tag</Parameter>
+        </Datasource>
+    </Layer>
+
+</Map>

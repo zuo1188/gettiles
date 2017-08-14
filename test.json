@@ -1,0 +1,13 @@
+{
+    "attribution": "test",
+    "name": "all.mbtiles",
+    "format": "pbf",
+    "description": "all.mbtiles",
+    "json": "{\"vector_layers\": [ {\"id\": \"landcover\", \"description\": \"\", \"minzoom\": 0, \"maxzoom\": 0, \"fields\": {} }, {\"id\": \"road_guodao\", \"description\": \"\", \"minzoom\": 0, \"maxzoom\": 0, \"fields\": {} }, { \"id\": \"road_qita\", \"description\": \"\", \"minzoom\": 0, \"maxzoom\": 0, \"fields\": {} }, { \"id\": \"road_shengdao\", \"description\": \"\", \"minzoom\": 0, \"maxzoom\": 0, \"fields\": {} }, { \"id\": \"road_xiandao\", \"description\": \"\", \"minzoom\": 0, \"maxzoom\": 0, \"fields\": {} }, { \"id\": \"road_xiangcundaolu\", \"description\": \"\", \"minzoom\": 0, \"maxzoom\": 0, \"fields\": {} }, { \"id\": \"road_xingren\", \"description\": \"\", \"minzoom\": 0, \"maxzoom\": 0, \"fields\": {} } ] }",
+    "bounds": "45.583290,126.562500,45.828799,126.914063",
+    "minzoom": "10",
+    "version": "2",
+    "maxzoom": "14",
+    "type": "overlay",
+    "center": "45.706045,126.738281,14"
+}

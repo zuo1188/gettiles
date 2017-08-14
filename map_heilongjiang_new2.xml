@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE Map [
+<!ENTITY maxscale_zoom0 "<MaxScaleDenominator>250000000000</MaxScaleDenominator>">
+<!ENTITY maxscale_zoom1 "<MaxScaleDenominator>500000000</MaxScaleDenominator>">
+<!ENTITY minscale_zoom1 "<MinScaleDenominator>200000000</MinScaleDenominator>">
+<!ENTITY maxscale_zoom2 "<MaxScaleDenominator>200000000</MaxScaleDenominator>">
+<!ENTITY minscale_zoom2 "<MinScaleDenominator>100000000</MinScaleDenominator>">
+<!ENTITY maxscale_zoom3 "<MaxScaleDenominator>100000000</MaxScaleDenominator>">
+<!ENTITY minscale_zoom3 "<MinScaleDenominator>50000000</MinScaleDenominator>">
+<!ENTITY maxscale_zoom4 "<MaxScaleDenominator>50000000</MaxScaleDenominator>">
+<!ENTITY minscale_zoom4 "<MinScaleDenominator>25000000</MinScaleDenominator>">
+<!ENTITY maxscale_zoom5 "<MaxScaleDenominator>25000000</MaxScaleDenominator>">
+<!ENTITY minscale_zoom5 "<MinScaleDenominator>12500000</MinScaleDenominator>">
+<!ENTITY maxscale_zoom6 "<MaxScaleDenominator>12500000</MaxScaleDenominator>">
+<!ENTITY minscale_zoom6 "<MinScaleDenominator>6500000</MinScaleDenominator>">
+<!ENTITY maxscale_zoom7 "<MaxScaleDenominator>6500000</MaxScaleDenominator>">
+<!ENTITY minscale_zoom7 "<MinScaleDenominator>3000000</MinScaleDenominator>">
+<!ENTITY maxscale_zoom8 "<MaxScaleDenominator>3000000</MaxScaleDenominator>">
+<!ENTITY minscale_zoom8 "<MinScaleDenominator>1500000</MinScaleDenominator>">
+<!ENTITY maxscale_zoom9 "<MaxScaleDenominator>1500000</MaxScaleDenominator>">
+<!ENTITY minscale_zoom9 "<MinScaleDenominator>750000</MinScaleDenominator>">
+<!ENTITY maxscale_zoom10 "<MaxScaleDenominator>750000</MaxScaleDenominator>">
+<!ENTITY minscale_zoom10 "<MinScaleDenominator>400000</MinScaleDenominator>">
+<!ENTITY maxscale_zoom11 "<MaxScaleDenominator>400000</MaxScaleDenominator>">
+<!ENTITY minscale_zoom11 "<MinScaleDenominator>200000</MinScaleDenominator>">
+<!ENTITY maxscale_zoom12 "<MaxScaleDenominator>200000</MaxScaleDenominator>">
+<!ENTITY minscale_zoom12 "<MinScaleDenominator>100000</MinScaleDenominator>">
+<!ENTITY maxscale_zoom13 "<MaxScaleDenominator>100000</MaxScaleDenominator>">
+<!ENTITY minscale_zoom13 "<MinScaleDenominator>50000</MinScaleDenominator>">
+<!ENTITY maxscale_zoom14 "<MaxScaleDenominator>50000</MaxScaleDenominator>">
+<!ENTITY minscale_zoom14 "<MinScaleDenominator>25000</MinScaleDenominator>">
+<!ENTITY maxscale_zoom15 "<MaxScaleDenominator>25000</MaxScaleDenominator>">
+<!ENTITY minscale_zoom15 "<MinScaleDenominator>12500</MinScaleDenominator>">
+<!ENTITY maxscale_zoom16 "<MaxScaleDenominator>12500</MaxScaleDenominator>">
+<!ENTITY minscale_zoom16 "<MinScaleDenominator>5000</MinScaleDenominator>">
+<!ENTITY maxscale_zoom17 "<MaxScaleDenominator>5000</MaxScaleDenominator>">
+<!ENTITY minscale_zoom17 "<MinScaleDenominator>2500</MinScaleDenominator>">
+<!ENTITY maxscale_zoom18 "<MaxScaleDenominator>2500</MaxScaleDenominator>">
+<!ENTITY minscale_zoom18 "">
+]>
+
+<Map srs="+proj=merc +lon_0=0 +lat_ts=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs" >
+
+
+    <Style name="bp">
+        <Rule>
+            <PolygonSymbolizer fill="red"  />
+            <LineSymbolizer stroke="red" stroke-width="1" clip="true" />
+        </Rule>
+    </Style>
+
+    <!-- 11级以上显示 -->
+    <Layer name="landcover" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs" status="1" maximum-scale-denominator="400000">
+        <StyleName>bp</StyleName>
+        <Datasource>
+            <Parameter name="type">postgis</Parameter>
+            <Parameter name="table">(select * from bp where kind='0123' or kind='0122' or kind='0141' or kind='0142' or kind='0144' or kind='0149' or kind='014b') as bp</Parameter>
+                        <!-- <Parameter name="table">(select * from bl ) as bl</Parameter> -->
+            <Parameter name="host">t0.map.design</Parameter>
+            <Parameter name="port">5432</Parameter>
+            <Parameter name="user">postgres</Parameter>
+            <Parameter name="password">Abc$1234</Parameter>
+            <Parameter name="dbname">basemap</Parameter>
+            <!-- <Parameter name="simplify_geometries">false</Parameter> -->
+<!-- this should be 'false' if you are manually providing the 'extent' -->
+            <!-- <Parameter name="estimate_extent">%(estimate_extent)s</Parameter> -->
+<!-- manually provided extent in epsg 900913 for whole globe -->
+<!-- providing this speeds up Mapnik database queries -->
+        <!-- <Parameter name="extent">%(extent)s</Parameter> -->
+        </Datasource>
+    </Layer>
+
+    <Layer name="landuse" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs" status="1" maximum-scale-denominator="400000">
+        <StyleName>bp</StyleName>
+        <Datasource>
+            <Parameter name="type">postgis</Parameter>
+            <Parameter name="table">(select * from bp where kind='0175' or kind='0176' or kind='0177' or kind='0179' or kind='017a' ) as bp</Parameter>
+                        <!-- <Parameter name="table">(select * from bl ) as bl</Parameter> -->
+            <Parameter name="host">t0.map.design</Parameter>
+            <Parameter name="port">5432</Parameter>
+            <Parameter name="user">postgres</Parameter>
+            <Parameter name="password">Abc$1234</Parameter>
+            <Parameter name="dbname">basemap</Parameter>
+            <!-- <Parameter name="simplify_geometries">false</Parameter> -->
+<!-- this should be 'false' if you are manually providing the 'extent' -->
+            <!-- <Parameter name="estimate_extent">%(estimate_extent)s</Parameter> -->
+<!-- manually provided extent in epsg 900913 for whole globe -->
+<!-- providing this speeds up Mapnik database queries -->
+        <!-- <Parameter name="extent">%(extent)s</Parameter> -->
+        </Datasource>
+    </Layer>
+
+    <Style name="waterway">
+        <Rule>
+            <!-- 4级以上显示现状水系 -->
+            <LineSymbolizer stroke="grey" stroke-width="1" clip="true" />
+        </Rule>
+    </Style>
+
+    <Layer name="waterway" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs" status="1" maximum-scale-denominator="50000000">
+        <StyleName>waterway</StyleName>
+        <Datasource>
+            <Parameter name="type">postgis</Parameter>
+            <Parameter name="table">(select * from bl where kind='0123') as bl</Parameter>
+                        <!-- <Parameter name="table">(select * from bl ) as bl</Parameter> -->
+            <Parameter name="host">t0.map.design</Parameter>
+            <Parameter name="port">5432</Parameter>
+            <Parameter name="user">postgres</Parameter>
+            <Parameter name="password">Abc$1234</Parameter>
+            <Parameter name="dbname">basemap</Parameter>
+            <!-- <Parameter name="simplify_geometries">false</Parameter> -->
+<!-- this should be 'false' if you are manually providing the 'extent' -->
+            <!-- <Parameter name="estimate_extent">%(estimate_extent)s</Parameter> -->
+<!-- manually provided extent in epsg 900913 for whole globe -->
+<!-- providing this speeds up Mapnik database queries -->
+        <!-- <Parameter name="extent">%(extent)s</Parameter> -->
+        </Datasource>
+    </Layer>
+
+
+    <Style name="water">
+        <Rule>
+            <!-- 7级以上显示面状水系 -->
+            <LineSymbolizer stroke="grey" stroke-width="1" clip="true" />
+        </Rule>
+    </Style>
+
+    <Layer name="water" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs" status="1" maximum-scale-denominator="6500000">
+        <StyleName>water</StyleName>
+        <Datasource>
+            <Parameter name="type">postgis</Parameter>
+            <Parameter name="table">(select * from bp where kind='0122' or kind='0124' ) as bl</Parameter>
+                        <!-- <Parameter name="table">(select * from bl ) as bl</Parameter> -->
+            <Parameter name="host">t0.map.design</Parameter>
+            <Parameter name="port">5432</Parameter>
+            <Parameter name="user">postgres</Parameter>
+            <Parameter name="password">Abc$1234</Parameter>
+            <Parameter name="dbname">basemap</Parameter>
+            <!-- <Parameter name="simplify_geometries">false</Parameter> -->
+<!-- this should be 'false' if you are manually providing the 'extent' -->
+            <!-- <Parameter name="estimate_extent">%(estimate_extent)s</Parameter> -->
+<!-- manually provided extent in epsg 900913 for whole globe -->
+<!-- providing this speeds up Mapnik database queries -->
+        <!-- <Parameter name="extent">%(extent)s</Parameter> -->
+        </Datasource>
+    </Layer>
+
+
+    <Style name="boundary">
+
+    </Style>
+
+    <!--8级以上显示区县行政区划-->
+    <Layer name="boundary" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs" status="1">
+        <StyleName>boundary</StyleName>
+        <Datasource>
+            <Parameter name="type">postgis</Parameter>
+            <Parameter name="table">(select kind from bl where (z(!scale_denominator!) >= 8 and kind='0137') as bl</Parameter>
+                        <!-- <Parameter name="table">(select * from bl ) as bl</Parameter> -->
+            <Parameter name="host">t0.map.design</Parameter>
+            <Parameter name="port">5432</Parameter>
+            <Parameter name="user">postgres</Parameter>
+            <Parameter name="password">Abc$1234</Parameter>
+            <Parameter name="dbname">basemap</Parameter>
+            <Parameter name="simplify_geometries">true</Parameter>
+<!-- this should be 'false' if you are manually providing the 'extent' -->
+            <!-- <Parameter name="estimate_extent">%(estimate_extent)s</Parameter> -->
+<!-- manually provided extent in epsg 900913 for whole globe -->
+<!-- providing this speeds up Mapnik database queries -->
+        <!-- <Parameter name="extent">%(extent)s</Parameter> -->
+        </Datasource>
+    </Layer>
+
+
+    <Style name="road">
+        <Rule>
+            <LineSymbolizer stroke="red" stroke-width="1" />
+        </Rule>
+    </Style>
+
+    <!-- 6级以上开始显示国道、高速路、都市高速路 -->
+    <!-- 10级以上，开始显示省道 -->
+    <!-- 11级以上，开始显示县道 -->
+    <!-- 12级以上，开始显示乡村道路 -->
+    <!-- 13级以上，开始显示其他 -->
+    <!-- 14级以上，开始显示九级路、轮渡、行人道路 -->
+    <Layer name="road" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs" status="1" maximum-scale-denominator="12500000">
+        <StyleName>road</StyleName>
+        <Datasource>
+            <Parameter name="type">postgis</Parameter>
+            <Parameter name="table">
+                (select * from rheilongjiang where (z(!scale_denominator!) >= 6 and (kind like '00%' or kind like '01%' or kind like '02%')) or
+                (z(!scale_denominator!) >= 10 and kind like '03%') or
+                (z(!scale_denominator!) >= 11 and kind like '04%') or
+                (z(!scale_denominator!) >= 12 and kind like '06%') or
+                (z(!scale_denominator!) >= 13 and kind like '08%') or
+                (z(!scale_denominator!) >= 14 and (kind like '09%' or kind like '0a%' or kind like '0b%'))) as roads </Parameter>
+            <Parameter name="host">t0.map.design</Parameter>
+            <Parameter name="port">5432</Parameter>
+            <Parameter name="user">postgres</Parameter>
+            <Parameter name="password">Abc$1234</Parameter>
+            <Parameter name="dbname">basemap</Parameter>
+            <!--<Parameter name="simplify_geometries">false</Parameter>-->
+        </Datasource>
+    </Layer>
+
+    <Layer name="building" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs" status="1" maximum-scale-denominator="100000">
+        <StyleName>bp</StyleName>
+        <Datasource>
+            <Parameter name="type">postgis</Parameter>
+            <Parameter name="table">(select * from bp where kind='0161' or kind='0162' or kind='0163' or kind='0164' or kind='0171' or kind='0172' or kind='0173' or kind='0174' or kind='0178') as bp</Parameter>
+                        <!-- <Parameter name="table">(select * from bl ) as bl</Parameter> -->
+            <Parameter name="host">t0.map.design</Parameter>
+            <Parameter name="port">5432</Parameter>
+            <Parameter name="user">postgres</Parameter>
+            <Parameter name="password">Abc$1234</Parameter>
+            <Parameter name="dbname">basemap</Parameter>
+            <!-- <Parameter name="simplify_geometries">false</Parameter> -->
+<!-- this should be 'false' if you are manually providing the 'extent' -->
+            <!-- <Parameter name="estimate_extent">%(estimate_extent)s</Parameter> -->
+<!-- manually provided extent in epsg 900913 for whole globe -->
+<!-- providing this speeds up Mapnik database queries -->
+        <!-- <Parameter name="extent">%(extent)s</Parameter> -->
+        </Datasource>
+    </Layer>
+
+     <Style name="poi">
+        <Rule>
+            <!-- 14级以上， 显示poi-->
+            <PointSymbolizer  />
+        </Rule>
+    </Style>
+
+    <Layer name="poi" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs" status="1" maximum-scale-denominator="50000">
+        <StyleName>poi</StyleName>
+        <Datasource>            
+            <Parameter name="type">postgis</Parameter>
+            <Parameter name="table">(select * from poi) as pois</Parameter>
+            <Parameter name="host">t0.map.design</Parameter>
+            <Parameter name="port">5432</Parameter>
+            <Parameter name="user">postgres</Parameter>
+            <Parameter name="password">Abc$1234</Parameter>
+            <Parameter name="dbname">basemap</Parameter>
+            <Parameter name="simplify_geometries">true</Parameter>
+<!-- this should be 'false' if you are manually providing the 'extent' -->
+            <!-- <Parameter name="estimate_extent">%(estimate_extent)s</Parameter> -->
+<!-- manually provided extent in epsg 900913 for whole globe -->
+<!-- providing this speeds up Mapnik database queries -->
+        <!-- <Parameter name="extent">%(extent)s</Parameter> -->
+        </Datasource>
+    </Layer>
+
+
+    <Style name="poi_name">
+        <Rule>
+            <TextSymbolizer size="10" fill="#000033" face-name="Microsoft YaHei Regular" halo-radius="1" wrap-width="20" placement="interior">[name]</TextSymbolizer>
+        </Rule>
+    </Style>
+
+    <Layer name="poi_name" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs" status="0" maximum-scale-denominator="50000">
+        <StyleName>poi_name</StyleName>
+        <Datasource>            
+            <Parameter name="type">postgis</Parameter>
+            <Parameter name="table">(select admincode,airpt_code,chaincode,data_src,display_x,display_y,featid,food_type,importance,keyword,kind,language,linkid,mapid,mesh_id,
+                name,nameflag,nametype,open_24h,pid,poi_flag,poi_id,prior_auth,py,rating,seq_nm,side,signnametp,signnumflg,tel_type,telephone,vadmincode,zipcode,geom
+                from poi left join pname on poi.poi_id=pname.featid and pname.nametype='9') as pois</Parameter>
+            <Parameter name="host">t0.map.design</Parameter>
+            <Parameter name="port">5432</Parameter>
+            <Parameter name="user">postgres</Parameter>
+            <Parameter name="password">Abc$1234</Parameter>
+            <Parameter name="dbname">basemap</Parameter>
+            <Parameter name="simplify_geometries">true</Parameter>
+<!-- this should be 'false' if you are manually providing the 'extent' -->
+            <!-- <Parameter name="estimate_extent">%(estimate_extent)s</Parameter> -->
+<!-- manually provided extent in epsg 900913 for whole globe -->
+<!-- providing this speeds up Mapnik database queries -->
+        <!-- <Parameter name="extent">%(extent)s</Parameter> -->
+        </Datasource>
+    </Layer>
+
+</Map>
+

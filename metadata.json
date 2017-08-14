@@ -1,0 +1,16 @@
+{
+    "attribution": "test",
+    "name": "hlj.mbtiles",
+    "description": "hlj.mbtiles",
+    "format": "pbf",
+    "created": 1451865600000,
+    "minzoom": "0",
+    "maxzoom": "14",
+    "scheme": "xyz",
+    "private": false,
+    "tilejson": "2.0.0",
+    "type": "overlay",
+    "bounds": "120.1123,36.187,120.763322,36.380208",
+    "center": "120.38281,36.206045,14",
+    "json": "{\"vector_layers\":[{\"description\":\"\",\"fields\":{\"kind\":\"\",\"poi_flag\":\"\",\"rating\":\"\",\"src_name\":\"\"},\"id\":\"poi\",\"source\":\"chengyang.mbtiles\",\"source_name\":\"chengyang.mbtiles\"},{\"description\":\"\",\"fields\":{\"class\":\"\",\"direction\":\"\",\"lanenum\":\"\",\"elevated\":\"\",\"structure\":\"\"},\"id\":\"road_l\",\"source\":\"chengyang.mbtiles\",\"source_name\":\"chengyang.mbtiles\"}]}"
+}
